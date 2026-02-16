@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Main</title>
-  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/main.css" />
+  <script src="deploy.js"></script>
 </head>
 
 <body>
@@ -30,24 +31,43 @@
     <!-- VLAN -->
     <section>
       <h3 class="section-title">VLAN</h3>
+
       <div class="card">
+
         <div class="grid-2">
           <input class="pill" type="text" placeholder="VLAN Number">
           <input class="pill" type="text" placeholder="Name">
         </div>
 
-        <div class="radio-row">
-          <label class="radio">
-            <input type="radio" name="vlan_mode">
+        <!-- CHECKBOX -->
+        <div class="check-row">
+          <label class="check">
+            <input type="checkbox" id="assignedCheck">
             Assigned ports
           </label>
-          <label class="radio">
-            <input type="radio" name="vlan_mode">
+
+          <label class="check">
+            <input type="checkbox" id="trunkCheck">
             Trunks
           </label>
         </div>
+
+        <!-- RANGE (ẩn mặc định) -->
+        <div id="assignedPortsBox" class="port-range" style="display:none;">
+          <select id="startPort" class="port-select">
+            <option disabled selected>Start Port</option>
+          </select>
+
+          <span class="port-arrow">→</span>
+
+          <select id="endPort" class="port-select">
+            <option disabled selected>End Port</option>
+          </select>
+        </div>
+
       </div>
     </section>
+
 
     <!-- User Create -->
     <section>
@@ -96,7 +116,5 @@
     </div>
 
   </main>
-  <script src="/deploy.js"></script>
-
 </body>
 </html>
