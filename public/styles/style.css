@@ -1,0 +1,423 @@
+:root {
+    --bg: #05070a;
+    --card-bg: rgba(13, 17, 28, 0.7);
+    --border: rgba(255, 255, 255, 0.08);
+    --pink: #ff2d55;
+    --purple: #7c4dff;
+    --blue: #007aff;
+    --green: #00ffa3;
+    --text-main: #ffffff;
+    --text-muted: #8a8f98;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Mouse Glow Effect */
+#mouse-glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 122, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    transition: width 0.3s, height 0.3s;
+}
+
+.grid-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+
+/* Navbar */
+.navbar {
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
+
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+.logo span { color: var(--blue); }
+.logo-icon { color: var(--blue); font-size: 1.2rem; }
+
+.nav-links { display: flex; list-style: none; gap: 30px; }
+.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; transition: 0.3s; }
+.nav-links a:hover { color: var(--blue); }
+
+
+
+/* Hero Section */
+.hero { padding: 100px 0; text-align: center; }
+.badge {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--blue);
+    border: 1px solid var(--border);
+}
+
+h1 { font-size: 4rem; margin: 20px 0; font-weight: 800; line-height: 1.1; }
+.blue-gradient { background: linear-gradient(90deg, #4facfe, #00f2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-subtitle { color: var(--text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; }
+
+.hero-btns { display: flex; justify-content: center; gap: 20px; }
+.btn-primary { padding: 15px 35px; background: white; color: black; border-radius: 10px; text-decoration: none; font-weight: 800; transition: 0.3s; }
+.btn-secondary { padding: 15px 35px; background: rgba(255,255,255,0.05); color: white; border-radius: 10px; text-decoration: none; font-weight: 700; border: 1px solid var(--border); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,255,255,0.2); }
+
+
+
+/* What you can do - Section Styles */
+/* Bento Grid Layout */
+.bento-section {
+    padding: 100px 0;
+    background: radial-gradient(circle at 0% 0%, rgba(0, 122, 255, 0.03), transparent 40%);
+}
+
+.text-center-box {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 280px;
+    gap: 20px;
+}
+
+/* Card Styling */
+.bento-item {
+    position: relative;
+    background: rgba(13, 17, 28, 0.8);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 0.3s ease;
+}
+
+/* Large Card spans 2 columns */
+.large-card {
+    grid-column: span 2;
+    grid-row: span 1;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255, 45, 85, 0.05) 0%, rgba(13, 17, 28, 0.8) 100%);
+}
+
+/* Content inside cards */
+.bento-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.pink-bg { background: rgba(255, 45, 85, 0.1); color: #ff2d55; }
+.purple-bg { background: rgba(124, 77, 255, 0.1); color: #7c4dff; }
+.blue-bg { background: rgba(0, 122, 255, 0.1); color: #007aff; }
+.green-bg { background: rgba(0, 255, 163, 0.1); color: #00ffa3; }
+.gold-bg { background: rgba(255, 204, 0, 0.1); color: #ffcc00; }
+
+.bento-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.bento-content p {
+    font-size: 0.9rem;
+    color: #8a8f98;
+    line-height: 1.6;
+}
+
+/* Spotlight Border Effect Logic */
+.spotlight::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(
+        600px circle at var(--mouse-x) var(--mouse-y),
+        rgba(255, 255, 255, 0.08),
+        transparent 40%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Hover State */
+.bento-item:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.01);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+    .bento-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+    .large-card {
+        grid-column: span 1;
+    }
+}
+
+/* Workflow Steps (from your Design) */
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
+.steps-grid { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 100px; }
+.step-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 40px 30px; flex: 1; text-align: center; backdrop-filter: blur(10px); transition: 0.4s; }
+.step-card:hover { transform: translateY(-10px); border-color: rgba(255,255,255,0.2); }
+.icon-wrapper { width: 70px; height: 70px; border-radius: 50%; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; position: relative; }
+.step-number { position: absolute; top: 0; right: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); font-size: 0.7rem; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+
+.pink-theme .icon-wrapper { background: rgba(255, 45, 85, 0.1); color: var(--pink); }
+.purple-theme .icon-wrapper { background: rgba(124, 77, 255, 0.1); color: var(--green); }
+.blue-theme .icon-wrapper { background: rgba(0, 122, 255, 0.1); color: var(--yellow); }
+
+.connector { color: var(--text-muted); font-size: 1.5rem; opacity: 0.3; }
+.card-tags { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+.card-tags span { background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; color: var(--text-muted); }
+
+/* Supported Devices */
+.device-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 100px; }
+.device-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 25px; display: flex; align-items: center; gap: 20px; transition: 0.3s; }
+.dev-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+.blue-box { background: rgba(0, 122, 255, 0.1); color: var(--blue); }
+.purple-box { background: rgba(124, 77, 255, 0.1); color: var(--purple); }
+.green-box { background: rgba(0, 255, 163, 0.1); color: var(--green); }
+.green-text { color: var(--green); }
+.badge-small { font-size: 0.6rem; background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; margin-left: 5px; opacity: 0.6; }
+
+/* Footer */
+footer { padding: 60px 0; border-top: 1px solid var(--border); background: #030406; }
+.footer-content { display: flex; justify-content: space-between; align-items: center; }
+.footer-left p { color: var(--text-muted); font-size: 0.9rem; margin-top: 10px; }
+
+/* Keyframes & Animation Classes */
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+.fade-in { opacity: 0; animation: fadeIn 1s forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.reveal { opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 900px) {
+    h1 { font-size: 2.5rem; }
+    .steps-grid, .device-grid, .footer-content { flex-direction: column; text-align: center; }
+    .connector { transform: rotate(90deg); padding: 20px 0; }
+    .nav-links { display: none; }
+}
+
+/* About Page Hero */
+
+/* Centered About Page Hero */
+.about-hero {
+    padding: 100px 0 40px; /* Increased top padding for better breathing room */
+    max-width: 800px;
+    margin: 0 auto;        /* Centers the block container horizontally */
+    text-align: center;    /* Centers all text, headings, and badges inside */
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* Ensures the badge and flex items are centered */
+}
+
+.about-description {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-top: 25px;
+    text-align: center;    /* Ensures multi-line text is centered */
+}
+
+/* Optional: Ensure the badge is also perfectly centered */
+.about-hero .badge {
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/* Stack Cards */
+.stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.stack-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: 0.3s ease;
+}
+
+.stack-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.stack-icon {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stack-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stack-info h3 { margin-bottom: 10px; font-size: 1.2rem; }
+.stack-info p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+/* 1. Center the Section and Title */
+.future-section {
+    text-align: center;
+    padding: 100px 0;
+}
+
+/* 2. The Centered List Container */
+.roadmap-list {
+    display: inline-block;   /* Allows the container to shrink to fit the width */
+    text-align: left;        /* Keeps the text left-aligned for readability */
+    margin: 40px auto 0;     /* Centers the block: 0 auto */
+    max-width: 600px;        /* Limits width so it doesn't span the whole screen */
+    position: relative;      
+    border-left: 1px solid rgba(255, 255, 255, 0.1); /* The vertical line */
+    padding-left: 40px;      /* Space for the dots */
+}
+
+/* 3. Each Item */
+.roadmap-item {
+    position: relative;
+    margin-bottom: 60px;     /* Increased spacing for a cleaner look */
+}
+
+.roadmap-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 4. The Glowing Centered Dot */
+.roadmap-dot {
+    position: absolute;
+    left: -51px;             /* Perfectly aligns with the border-left (40px padding + half dot width) */
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: #05070a;     /* Match your deep dark background */
+    border: 2px solid var(--green);
+    border-radius: 50%;
+    
+    /* The Neon Glow Effect from your image */
+    box-shadow: 0 0 10px var(--green), 
+                0 0 20px rgba(0, 255, 163, 0.2);
+    z-index: 2;
+}
+
+/* 5. Text Content */
+.roadmap-content h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+.roadmap-content p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .roadmap-list {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding-left: 30px;
+    }
+    .roadmap-dot {
+        left: -41px;
+    }
+}
+
+/* Footer Center Arrow */
+.scroll-top {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    text-decoration: none;
+    transition: 0.3s;
+    background: rgba(255,255,255,0.05);
+}
+
+.scroll-top:hover {
+    transform: translateY(5px);
+    background: var(--blue);
+    border-color: var(--blue);
+}
+
+/* Page Dividers */
+.divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+    margin: 80px 0;
+}
+
+@media (max-width: 768px) {
+    .stack-card { flex-direction: column; }
+    .about-description { font-size: 1.1rem; }
+}

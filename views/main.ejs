@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+  <main class="page">
+
+    <!-- DHCP -->
+    <section>
+      <h3 class="section-title">DHCP</h3>
+      <div class="card">
+        <div class="grid-2">
+          <input class="pill" type="text" placeholder="POOL">
+          <input class="pill" type="text" placeholder="Network">
+          <input class="pill" type="text" placeholder="Default Router">
+          <input class="pill" type="text" placeholder="DNS Server">
+        </div>
+
+        <div class="center-row">
+          <input class="pill" type="text" placeholder="IP DHCP Excluded">
+        </div>
+      </div>
+    </section>
+
+    <!-- VLAN -->
+    <section>
+      <h3 class="section-title">VLAN</h3>
+      <div class="card">
+        <div class="grid-2">
+          <input class="pill" type="text" placeholder="VLAN Number">
+          <input class="pill" type="text" placeholder="Name">
+        </div>
+
+        <div class="radio-row">
+          <label class="radio">
+            <input type="radio" name="vlan_mode">
+            Assigned ports
+          </label>
+          <label class="radio">
+            <input type="radio" name="vlan_mode">
+            Trunks
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Create -->
+    <section>
+      <h3 class="section-title">User Create</h3>
+      <div class="card">
+        <div class="radio-grid-2">
+          <label class="radio"><input type="radio" name="device"> Router</label>
+          <label class="radio"><input type="radio" name="device"> Switch - 1</label>
+          <label class="radio"><input type="radio" name="device"> L3 Switch</label>
+          <label class="radio"><input type="radio" name="device"> Switch - 2</label>
+        </div>
+
+        <div class="grid-2">
+          <input class="pill" type="text" placeholder="User Name">
+          <input class="pill" type="password" placeholder="Secret">
+        </div>
+      </div>
+    </section>
+
+    <!-- OSPF -->
+    <section>
+      <h3 class="section-title">OSPF</h3>
+      <div class="card">
+        <div class="grid-2">
+          <input class="pill" type="text" placeholder="Router ospf number">
+          <input class="pill" type="text" placeholder="Wildcard">
+          <input class="pill" type="text" placeholder="Network">
+          <input class="pill" type="text" placeholder="Area">
+        </div>
+      </div>
+    </section>
+
+    <!-- NTP -->
+    <section>
+      <h3 class="section-title">NTP</h3>
+      <div class="card">
+        <div class="center-row">
+          <input class="pill" type="text" placeholder="NTP Server">
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPLOY BUTTON -->
+    <div class="deploy-container">
+      <button class="deploy-btn" type="button">Deploy</button>
+    </div>
+
+  </main>
+  <script src="/deploy.js"></script>
+
+</body>
+</html>
